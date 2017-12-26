@@ -1,27 +1,36 @@
-# repetitive.js
+# github-users
 
-**PLEASE NOTE! This library is still in production! It will be expanded in the future but for now - you can use standalone modules for repetitive tasks**
-
-repetitive.js is a JavaScript library created to perform repetitive tasks. AJAX calls, manipulating DOM classes etc. - all the things you've probably done countless times before - now in a single library. Or not! repetitive.js is modularized - every function can be obtained as a standalone UMD module package.
+node.js module to access any Github user's data by Github API. Done for the purpose of learning node.js.
 
 ## Installation
 
 You can install this package from npm:
 ```bash
-npm install repetitive
-npm install --save repetitive
-npm install --save-dev repetitive
+npm install github-users
+npm install --save github-users
+npm install --save-dev github-users
 ```
 
-Use in a browser:
-```html
-<script src="repetitive.js"></script>
-<script src="repetitive.min.js"></script>
+Use in node:
+```javascript
+	const githubUsers = require("github-users");
+
+	githubUsers.getData("ol-web", function(error, data){
+		if(error) throw error;
+		console.log(data);
+	});
+
+	githubUsers.getRepos("ol-web", function(error, repos){
+		if(error) throw error;
+		console.log(repos);
+	});
 ```
 
 ## Documentation
 
-Available here: https://ol-web.github.io/repetitivejs
+githubUsers has two methods. Both of them take user's Github login as a first argument and a callback function as a second argument.
+
+The callback function returns requested user data as a second argument.
 
 ## Is there something wrong?
 
